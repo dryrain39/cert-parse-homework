@@ -23,7 +23,7 @@ if __name__ == "__main__":
             logging.debug("Writing...")
             writer.write(data, mode='w')
 
-        if i[i][4] == '':
+        if data[i][4] == '':
             res = downloader.read(
                 "https://api.ipgeolocation.io/ipgeo?apiKey=&ip={}".format(data[i][4]))
             
