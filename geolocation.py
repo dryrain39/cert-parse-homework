@@ -19,12 +19,19 @@ if __name__ == "__main__":
     data = writer.read()
 
     for i in range(0, len(data)):
-        res = downloader.read(
-            "https://api.ipgeolocation.io/ipgeo?apiKey=&ip={}".format(data[i][4]))
-        
-        result = json.loads(res)
-        logging.debug("Updated {}".format(data[i][4]))
-        data[i][5] = result['country_name']
+        if (i / 100) == 0:
+            logging.debug("Writing...")
+            writer.write(data, mode='w')
+
+        if i[i][4] == '':
+            res = downloader.read(
+                "https://api.ipgeolocation.io/ipgeo?apiKey=&ip={}".format(data[i][4]))
+            
+            result = json.loads(res)
+            logging.debug("Updated {}".format(data[i][4]))
+            data[i][5] = result['country_name']
+        else:
+            logging.debug("Pass {} {}".format(data[i][4], data[i][5]))
 
     logging.debug("Writing...")
     writer.write(data, mode='w')
