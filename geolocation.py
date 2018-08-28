@@ -22,7 +22,6 @@ if __name__ == "__main__":
     writer.path = './data.geolocation.csv'
 
     for i in range(0, len(data)):
-        print(data[i][5])
         if data[i][5] == '':
             res = downloader.read(
                 "https://api.ipgeolocation.io/ipgeo?apiKey=&ip={}".format(data[i][4]))
