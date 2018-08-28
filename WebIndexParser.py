@@ -52,6 +52,7 @@ class WebIndexParser:
                 pass
 
         logging.info("Parse Done!")
+        return self.data
 
         # print(link['href'])
         # table = soup.find("table")
@@ -62,7 +63,7 @@ class WebIndexParser:
         #         print('filename: ', cols[1].get_text())
         #         print('date: ', cols[2].get_text())
         #         print('filesize: ', cols[3].get_text())
-
+    
     def _cache_io(self, act):
         f = open(self.webcache_path, act)
         if 'w' in act:

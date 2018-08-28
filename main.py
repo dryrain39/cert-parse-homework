@@ -42,10 +42,13 @@ if __name__ == "__main__":
     writer.path = './data.csv'
 
     parser.base_url = 'http://fl0ckfl0ck.info/cert/'
+    parser.load_cache_if_available = True
 
-    f = open('data.json', 'r')
-    data = f.read()
-    data = json.loads(data)
+    parser.get()
+    data = parser.parse_data()
+    # f = open('data.json', 'r')
+    # data = f.read()
+    # data = json.loads(data)
 
     for d in data:
         file_name = d['name'] + '.' + d['extension']
