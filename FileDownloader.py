@@ -21,6 +21,14 @@ class FileDownloader:
             })
             return failed
 
+    def read(self, url):
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            result_string = urllib.request.urlopen(req).read()
+            return result_string
+        except Exception as e:
+            return e
+
     def _check_files(self, file_path):
         cache_file = Path(file_path)
 

@@ -5,9 +5,9 @@ class CsvWriter:
     path = ''
     header = ['name', 'time', 'bank_name', 'account_no', 'ip_address', 'country']
 
-    def write(self, data):
+    def write(self, data, mode='a'):
         # csv를 작성(추가)한다. fieldnames에 맞는 dictionary가 들어오면 필드에 맞게 csv를 쓴다.
-        with open(self.path, 'a') as csvfile:
+        with open(self.path, mode) as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=self.header)
 
             writer.writerow(data)
