@@ -46,9 +46,6 @@ if __name__ == "__main__":
 
     parser.get()
     data = parser.parse_data()
-    # f = open('data.json', 'r')
-    # data = f.read()
-    # data = json.loads(data)
 
     for d in data:
         file_name = d['name'] + '.' + d['extension']

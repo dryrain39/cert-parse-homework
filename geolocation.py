@@ -52,7 +52,7 @@ if __name__ == "__main__":
             })
 
         except Exception:
-            failed.append({
+            error_writer.write({
                 'name': data[i][0],
                 'time': data[i][1],
                 'bank_name': data[i][2],
